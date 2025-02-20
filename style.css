@@ -12,7 +12,7 @@ body {
     background-color: #ecf0f1;
     padding: 8px;
     height: 10vh;
-    font-size: calc(10vh * 0.4);
+    font-size: 4vh
    
 }
 
@@ -45,6 +45,7 @@ body {
     display: flex;
     gap: 5vw;
     background-color: #ffffff;
+    overflow: hidden;
 }
 
 .hero-box-txt,
@@ -59,13 +60,14 @@ body {
   }
 
 .hero-box-txt h1 {
-    font-size: 48px;
+    font-size: 9vh;
     margin: 0px;
+    flex: 1;
 }  
 
 .hero-box-txt p {
-    font-size: 18px;
-    /* margin: 0px; */
+    font-size: 3vh;
+    max-height: 100%;
 }
 .button {
     display: inline-block;
@@ -92,40 +94,81 @@ body {
     height: 450px;
 }
 
+.historical-adventures h1 {
+    font-size: 4vh;
+}
+
 .adventure-cards {
-    display: flex;
-    /* width: 100%; */
+    /*grows to fill space below h1, and 0 allows it to shrink below contents' native size*/
+    flex: 1 1 0; 
+    display: flex; /* align adventure-cards 1/2/3 horizontally */
     justify-content:center;
-    height: calc(100% - 60px);
+    gap: 10px;
+    padding: 0 5vw
+}
+
+.adventure-cards-images {
+    /* 4:1 ratio within parent container for images:texts, 
+    min-height/width allows flexbox to shrink below a child image's native size */
+    flex: 4 4 0;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+}
+
+.adventure-cards-texts {
+    flex: 1 1 0;
+    display: flex; /*uses flexbox to centre text*/
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 3vh;
 }
 
 .adventure-cards img {
-    max-height: 100%;
+    /* height/width 100% tells the images to fill their containers
+    this will also centre them; otherwise they need to be explicitly aligned */
+    height: 100%;
+    width: 100%;
+    object-fit: contain; /* Maintains aspect ratio while filling container */
 
-    flex: 1 1 0;
-    width: auto;
-    object-fit: contain;
 
 }
 
 .adventure1, 
 .adventure2, 
 .adventure3 {
-    /* height: 100%; */
     display: flex;
+    flex: 1;
     flex-direction: column;
-    /* flex: 1 1 0;
-    max-width: 30%;
-    max-height: 30vh;
-    width: auto;
-    height: auto;
-    object-fit: contain; */
 }
 
-/* contain .adventure# containers within .adventure-cards
-imgs should be 2/3 the size of the .adventure# containers,
-and txt 1/3
+.customer-testimonials {
+    background-color: #ecf0f1;
+    height: 300px;
+ /* TODO: set para to 1/4 screen width */
+}
 
-explicit containers needed for the imgs and txt??
+.customer-testimonials p {
+    margin: 0
+}
 
-colloseum img out of proportion. auto crop imgs to same width??*/
+.sign-up-container {
+    background-color: #123248;
+    height: 300px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    font-size: 2vh;
+    background-color: #ecf0f1;
+}
+
+/* Boilerplate for the pages under construction */
+.under-construction {
+    height: 450px;
+    padding: 2vh 5vw;
+}
